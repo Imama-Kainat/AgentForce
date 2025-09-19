@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gen Z Royal Luxe Design System - Dark Mode First
+All colors MUST be HSL. Typography: Inter Font.
+*/
+
+@layer base {
+  :root {
+    /* Gen Z Royal Palette */
+    --background: 243 18% 4%; /* Rich Black #0A0A0D */
+    --foreground: 0 0% 100%; /* White #FFFFFF */
+
+    --card: 243 14% 12%; /* Dark Gray #1C1B29 */
+    --card-foreground: 0 0% 100%;
+
+    --popover: 243 14% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Royal Purple Primary */
+    --primary: 262 83% 58%; /* Royal Purple #7C3AED */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Electric Indigo Secondary */
+    --secondary: 270 91% 42%; /* Electric Indigo #5B21B6 */
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted Grays */
+    --muted: 243 14% 12%;
+    --muted-foreground: 0 0% 64%; /* Cool Gray #A3A3A3 */
+
+    /* Deep Sapphire Accent */
+    --accent: 199 89% 48%; /* Deep Sapphire Blue #0EA5E9 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - Emerald Green */
+    --success: 160 84% 39%; /* Emerald Green #10B981 */
+    --success-foreground: 0 0% 100%;
+
+    /* Neon Pink Accent */
+    --neon: 322 82% 59%; /* Neon Pink #EC4899 */
+    --neon-foreground: 0 0% 100%;
+
+    --border: 243 14% 16%;
+    --input: 243 14% 16%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.5rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, 
+      hsl(262 83% 58%) 0%,  /* Royal Purple */
+      hsl(270 91% 42%) 25%, /* Electric Indigo */
+      hsl(199 89% 48%) 50%, /* Deep Sapphire */
+      hsl(180 84% 39%) 100% /* Teal */
+    );
+    
+    --gradient-card: linear-gradient(135deg, 
+      hsl(243 14% 12%) 0%,
+      hsl(243 14% 16%) 100%
+    );
+
+    --glow-primary: 0 0 20px hsl(262 83% 58% / 0.5);
+    --glow-accent: 0 0 20px hsl(199 89% 48% / 0.5);
+    --glow-neon: 0 0 20px hsl(322 82% 59% / 0.5);
+
+    /* Glass Effect */
+    --glass-bg: hsl(243 14% 12% / 0.8);
+    --glass-border: hsl(0 0% 100% / 0.1);
+  }
+
+  /* Dark mode is the default - no .dark class needed */
+}
+
+  /* Typography - Inter Font System */
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  .text-hero {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .text-heading {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  /* Gradient Text Effects */
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glass Morphism */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 4px 6px -1px hsl(0 0% 0% / 0.1),
+      0 2px 4px -1px hsl(0 0% 0% / 0.06),
+      inset 0 1px 0 hsl(0 0% 100% / 0.1);
+  }
+
+  /* Glowing Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glow-neon {
+    box-shadow: var(--glow-neon);
+  }
+
+  /* Animated Gradient Background */
+  .gradient-mesh {
+    background: var(--gradient-hero);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Particle Effect */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: hsl(0 0% 100% / 0.3);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+    50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
