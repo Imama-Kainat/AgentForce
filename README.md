@@ -1,5 +1,5 @@
 
-# AgentForce Frontend
+# AgentForce Frontend.
 
 AgentForce is a modern AI agent platform built with **React**, **TypeScript**, **Vite**, and **TailwindCSS**. This frontend provides users with authentication, professional chat, browsing agent teams, and interactive UI components.
 
